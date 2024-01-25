@@ -1,0 +1,28 @@
+#Q_2.2
+
+
+def is_hexadecimal(s):
+    hex_digits = set("0123456789abcdefABCDEF")
+    return all(char in hex_digits for char in s)
+
+def hex_to_decimal(hex_str):
+    try:
+        decimal_value = int(hex_str, 16)
+        return decimal_value
+    except ValueError:
+        return None
+
+def main():
+    user_input = input("Enter a string: ")
+    
+    if is_hexadecimal(user_input):
+        decimal_value = hex_to_decimal(user_input)
+        if decimal_value is not None:
+            print("Base-10 value:", decimal_value)
+        else:
+            print("Error: Invalid hexadecimal format.")
+    else:
+        print("Error: Input contains non-hexadecimal characters.")
+
+if __name__ == "__main__":
+    main()
